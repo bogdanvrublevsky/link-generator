@@ -1,4 +1,6 @@
+console.debug('Strarting script loading')
 function main() {
+    console.debug('Strarting  main function')
     const fields = document.querySelectorAll('#utm-form input');
     const result = document.getElementById('result');
     const copyBtn = document.getElementById('copy');
@@ -32,6 +34,8 @@ function main() {
     });
 
     buildLink();
+    console.debug('Main function finished')
 }
 
 document.addEventListener('DOMContentLoaded', main);
+console.debug('Script loaded')
