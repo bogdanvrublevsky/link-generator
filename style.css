@@ -49,3 +49,24 @@ input[type="text"] {
     border-radius: 6px;
     cursor: pointer;
 }
+
+@keyframes flashGreenTwice {
+
+    0%,
+    100% {
+        background-color: transparent;
+    }
+
+    25%,
+    75% {
+        background-color: #a6f3a6;
+    }
+
+    50% {
+        background-color: transparent;
+    }
+}
+
+.flash {
+    animation: flashGreenTwice 0.5s ease-in-out 2;
+}
