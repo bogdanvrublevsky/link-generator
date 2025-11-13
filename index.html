@@ -4,125 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Генератор ссылок для веб-мастеров</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 40px auto;
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 6px;
-            margin-top: 4px;
-            box-sizing: border-box;
-        }
-
-        #result-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            background: #f6f6f6;
-            border-radius: 6px;
-        }
-
-        #result {
-            flex: 1;
-            padding: 10px;
-            word-break: break-all;
-            font-family: monospace;
-        }
-
-        #copy {
-            width: 36px;
-            height: 36px;
-            background: url('copy.svg') center center no-repeat;
-            background-size: 20px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" async></script>
 </head>
 
 <body>
-    <h1>Генератор UTM-ссылок</h1>
 
-    <form id="utm-form">
-        <label>Исходная ссылка</label>
-        <input type="text" id="base" placeholder="https://example.com" value="https://example.com">
+    <aside id="link-list"></aside>
 
-        <label>utm_source</label>
-        <input type="text" id="source" placeholder="google" value="google">
+    <main>
+        <h1>Генератор UTM-ссылок</h1>
+        <form id="utm-form">
+            <label>Исходная ссылка</label>
+            <input type="text" id="base" placeholder="https://example.com" value="https://example.com">
 
-        <label>utm_medium</label>
-        <input type="text" id="medium" placeholder="cpc" value="cpc">
+            <label>utm_source</label>
+            <input type="text" id="source" placeholder="google" value="google">
 
-        <label>utm_campaign</label>
-        <input type="text" id="campaign" placeholder="summer_sale" value="summer_sale">
+            <label>utm_medium</label>
+            <input type="text" id="medium" placeholder="cpc" value="cpc">
 
-        <label>utm_content</label>
-        <input type="text" id="content" placeholder="banner1" value="banner1">
+            <label>utm_campaign</label>
+            <input type="text" id="campaign" placeholder="summer_sale" value="summer_sale">
 
-        <label>utm_term</label>
-        <input type="text" id="term" placeholder="discount shoes" value="discount shoes">
-    </form>
+            <label>utm_content</label>
+            <input type="text" id="content" placeholder="banner1" value="banner1">
 
-    <div id="result-container">
-        <div id="result"></div>
-        <button id="copy"></button>
-    </div>
+            <label>utm_term</label>
+            <input type="text" id="term" placeholder="discount shoes" value="discount shoes">
+        </form>
 
-    <script>
-        const fields = document.querySelectorAll('#utm-form input');
-        const result = document.getElementById('result');
-        const copyBtn = document.getElementById('copy');
-        const container = document.getElementById('result-container');
+        <div id="result-container">
+            <div id="result"></div>
+            <button id="copy"></button>
+        </div>
+    </main>
 
-        function buildLink() {
-            const base = document.getElementById('base').value.trim();
-            if (!base) {
-                result.textContent = '';
-                return;
-            }
-
-            const params = [];
-            ['source', 'medium', 'campaign', 'content', 'term'].forEach(key => {
-                const value = document.getElementById(key).value.trim();
-                if (value) params.push(`utm_${key}=${encodeURIComponent(value)}`);
-            });
-
-            const sep = base.includes('?') ? '&' : '?';
-            const full = params.length ? base + sep + params.join('&') : base;
-            result.textContent = full;
-        }
-
-        fields.forEach(f => f.addEventListener('input', buildLink));
-
-        function flashGreen() {
-            container.style.transition = 'background-color 0.5s';
-            container.style.backgroundColor = '#a6f3a6';
-            setTimeout(() => {
-                container.style.backgroundColor = '';
-            }, 500);
-        }
-
-        copyBtn.addEventListener('click', () => {
-            const text = result.textContent.trim();
-            if (!text) return;
-            navigator.clipboard.writeText(text);
-            flashGreen();
-        });
-
-        buildLink();
-    </script>
+    <aside></aside>
 </body>
 
 </html>
