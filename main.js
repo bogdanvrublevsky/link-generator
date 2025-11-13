@@ -1,4 +1,8 @@
 console.debug('Strarting script loading')
+// todo
+// basic fields validation
+// 'add/remove field' functionality
+// recent links list via local storage or cookies 
 function main() {
     console.debug('Strarting  main function')
     const fields = document.querySelectorAll('#utm-form input');

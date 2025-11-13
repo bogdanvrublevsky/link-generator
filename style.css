@@ -11,6 +11,10 @@ body {
     align-content: space-around;
 }
 
+main {
+    max-width: 1200px;
+}
+
 label {
     display: block;
     margin-top: 10px;
@@ -23,6 +27,8 @@ input[type="text"] {
     margin-top: 4px;
     box-sizing: border-box;
 }
+
+
 
 #result-container {
     display: flex;
