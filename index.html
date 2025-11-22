@@ -3,28 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Генератор ссылок для веб-мастеров</title>
+    <title>Link Generator</title>
     <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <aside id="link-list"></aside>
+    <aside id="link-list">
+        <h2>Recent Links<span class="icon-info"></span></h2>
+        <ul id="links"></ul>
+    </aside>
 
     <main>
-        <h1>Генератор UTM-ссылок</h1>
+        <h1>Free Link Generation Tool</h1>
         <form id="utm-form">
-            <label>Исходная ссылка</label>
+            <label>Base Link</label>
             <input type="text" id="base" placeholder="https://example.com" value="https://example.com">
 
-            <label>utm_source</label>
+            <label>Source (utm_source)</label>
             <input type="text" id="source" placeholder="google" value="google">
 
-            <label>utm_medium</label>
+            <label>Medium (utm_medium)</label>
             <input type="text" id="medium" placeholder="cpc" value="cpc">
 
-            <label>utm_campaign</label>
+            <label>Campaign (utm_campaign)</label>
             <input type="text" id="campaign" placeholder="summer_sale" value="summer_sale">
 
             <label>utm_content</label>
@@ -40,7 +43,44 @@
         </div>
     </main>
 
-    <aside></aside>
+    <aside id="info">
+        <h2>Guide</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Example</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Source (utm_source)</td>
+                    <td>google|facebook</td>
+                    <td>The platform where the traffic originates.</td>
+                </tr>
+                <tr>
+                    <td>Medium (utm_medium)</td>
+                    <td>cpc|cpa</td>
+                    <td>The marketing medium.</td>
+                </tr>
+                <tr>
+                    <td>Campaign (utm_campaign)</td>
+                    <td>spring_sale</td>
+                    <td>The specific campaign name to track.</td>
+                </tr>
+                <tr>
+                    <td>utm_content</td>
+                    <td>logo50sale</td>
+                    <td>Used to differentiate similar content or links within the same ad.</td>
+                </tr>
+                <tr>
+                    <td>utm_term</td>
+                    <td>running shoes</td>
+                    <td>Identifies paid search keywords.</td>
+                </tr>
+        </table>
+    </aside>
     <script src="main.js" defer></script>
 </body>
 
