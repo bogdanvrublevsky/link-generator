@@ -9,7 +9,7 @@ function main() {
     const links = document.getElementById('links');
 
     function buildLink() {
-        ```buids a link with UTM parameters```
+        // buids a link with UTM parameters
         const base = document.getElementById('base').value.trim();
         const params = [];
         ['source', 'medium', 'campaign', 'content', 'term'].forEach(key => {
@@ -22,7 +22,7 @@ function main() {
     }
 
     function createLinkElement(key, value) {
-        ```creates and appends a link element to the links container```
+        // creates and appends a link element to the links container
         if (links.querySelector(`[data-key="${key}"]`)) return;
         const el = document.createElement("div");
         el.dataset.key = key;
@@ -31,7 +31,7 @@ function main() {
     }
 
     function loadLinks() {
-        ```loads saved links from localStorage```
+        // loads saved links from localStorage
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
             if (!key.startsWith("link-")) continue;
@@ -41,14 +41,14 @@ function main() {
     }
 
     function saveLink(value) {
-        ```saves a link to localStorage and returns its key```
+        // saves a link to localStorage and returns its key
         const key = "link-" + Date.now();
         localStorage.setItem(key, value);
         return key;
     }
 
     copyBtn.addEventListener('click', () => {
-        ```copies the generated link to clipboard and saves it```
+        // copies the generated link to clipboard and saves it
         const text = result.textContent.trim();
         if (!text) return;
         navigator.clipboard.writeText(text);
