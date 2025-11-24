@@ -3,7 +3,7 @@ Simple app for constructing link urls with additional arguments like utm_source 
 
 # to do
 - multiple languages
-- recent link list
+- recent link list - done
 - hostname validation (via request)
 - fields validation
 - toggle encoding
